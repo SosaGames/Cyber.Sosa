@@ -1,1 +1,22 @@
+html, body 
+{
+  margin: 0; 
+  height: 100%;
+  background: #111; 
+  
+}
 
+
+#room 
+{
+    position: fixed;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: 0% center;
+    background-size: auto 100%;
+    background-image: url("longoffice.png");
+    will-change: background-position;
+    cursor: grab; 
+}
+
+#room:active {cursor: grabbing;}
