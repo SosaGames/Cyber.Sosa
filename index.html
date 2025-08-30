@@ -4,9 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Mathias's office!</title>
- 
+</head>
     <body>
-      <div id="room"></div>
+
+<div id="startmenu" class="startmenu">
+  <div class="startmenu-intro" id="startmenu-intro">
+    <h1>Welcome to Mathias's Office!</h1>
+    <p>DISCLAIMER: Website is still in development, stay tuned for more updates! I hope you enjoy it!</p>
+    <p>Navigating the website is easy! All you have to do is move the mouse OR your finger to pan in whatever direction you want! Click on the red icons for more information on my office and what not.</p>
+    <p>Whenever you're ready press <kbd>Space</kbd> or use the toggle to open <b>GameSosa</b>. Controls: click <b>B</b> on the screen to jump. Thats it! Have fun!</p>
+    <div class="startmenu-actions">
+      <button id="startmenu-enter" class="btnContinue">Continue</button>
+      <button id="startmenu-hide" class="btnContinue Startmenu-enter">Don’t show again</button>
+    </div>
+  </div>
+</div>
+      
+      <div id="room">
         <img src="dot.png" class="icon" style="left: 70%; top:70%" data-target="desk">   <!--Desk -->
         <img src="dot.png" class="icon" style="left:22%; top:55%" data-target="shelf">    <!--Shelf -->
         <img src="dot.png" class="icon" style="left:34%; top: 57%" data-target="workshop">  <!--WorkShop -->
@@ -19,7 +33,10 @@
 
       <div id="closeup" class="hidden">
 <div class="closeup-content">
-  <img id="closeup-img">
+    <div class="photo">
+      <img id="closeup-img" alt="">
+      <div id="pin-layer" class="pin-layer"></div>
+    </div>
   <div id="closeup-text"></div>
 </div>
 <button id="back">Go Back</button>
@@ -28,7 +45,35 @@
 
       
       <link rel="stylesheet" href="index.css">
-      <script src = "index.js"></script>
-    </body>
 
 
+  <div id="consoleshell" class="console-shell">
+    <div class="console"> 
+
+      <button id="btn-b" class="invisible-btn" style="left: 853px; top: 667px; width: 75px; height: 75px;"></button> <!--B button-->
+      <button id="btn-a" class="invisible-btn" style="left: 945px; top: 560px; width: 85px; height: 85px;"></button> <!--A button-->
+      <button id="btn-power" class="invisible-btn" style="left: 820px; top: 828px; width: 48px; height: 48px;"></button> <!--Power button-->
+      <button id="btn-up" class="invisible-btn" style="left: 692px; top: 560px; width: 45px; height: 45px;"></button> <!--Up button-->
+      <button id="btn-down" class="invisible-btn" style="left: 692px; top: 650px; width: 45px; height: 45px;"></button> <!--Down button-->
+      <button id="btn-right" class="invisible-btn" style="left: 738px; top: 605px; width: 45px; height: 45px;"></button> <!--Right button-->
+      <button id="btn-left" class="invisible-btn" style="left: 645px; top: 605px; width: 45px; height: 45px;"></button> <!--Left button-->
+      
+
+      <div class="screen">
+        <canvas id="Game" width="300" height="300"></canvas>
+      </div>
+      <div class="controls">
+        <div class="dpad">
+          <div class="up"></div>
+          <div class="down"></div>
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+        <div class="buttons">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src = "index.js"></script>
+</body>
