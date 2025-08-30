@@ -28,33 +28,33 @@ window.addEventListener('touchmove', (e) => {
 const closeups = {
   desk: {
     img: "Desk.png",
-    text: "This is where I do all of my work and study a vast amount of technology, This is configured with Dual Boot Windows 11/Arch Linux (I Use Arch BTW) where I do CTF's, program, virtualize systems with VMware, Game Development, Game(ofc), and more!",
+    text: "This is where I do all of my work and study a vast amount of technology. This is configured with Dual Boot Windows 11/Arch Linux (I use Arch BTW), where I do CTF's, Program software, virtualize systems with VMware, Game Development, play games(ofc), and more!",
     pins: [
-      { x: 76, y: 28, text: "Specs: AMD Ryzen 7 7700X 8-Core Processor, AMD Radeon RX 7600 XT, 2TB M.2 nvme, 32GB DDR5, B650 GAMING X AX" },
-      { x: 43, y: 64, text: "This is charlie, he often lays under my desk while I work, He says bark" },
+      { x: 76, y: 28, text: "Specs: AMD Ryzen 7 7700X 8-Core Processor, AMD Radeon RX 7600 XT, 2TB M.2 NVMe, 32GB DDR5, B650 GAMING X AX" },
+      { x: 43, y: 64, text: "This is Charlie, he often lies under my desk while I work. He says bark" },
       { x: 75, y: 37, text: "My work laptop, working remotely as a compliance specialist working with frameworks like SOC 2 and ISO 27001" }
     ]
   },
-  workshop: { img: "workshop.png", text: "I Used to tinker on my main desk, but to prevent damaging it I build this one! Here is where I disasemble and repair a vast amount of electronics, some of the most recent include a PS3 Fat, Wii Remotes, and my brothers Phone!", 
+  workshop: { img: "workshop.png", text: "I used to tinker on my main desk, but to prevent damage, I built this one! This is where I disassemble and repair a vast amount of electronics, some of the most recent include a PS3 Fat, Wii Remotes, and my brother's Phone!", 
     pins: [
     { x: 35, y: 50, text: "mmmm Pi" },
     { x: 50, y: 68, text: "01000010 01110101 01101001 01101100 01100100 00100000 01101101 01100101 00100000 01100001 01101100 01110010 01100101 01100001 01100100 01111001 00101110 00101110 00101110 00100000"},
-    { x: 70, y: 20, text: "Rock Climbing stuff sitting ontop of my tool box that houses wires, screws, small and tools"},
+    { x: 70, y: 20, text: "Rock Climbing stuff sitting on top of my tool box that houses wires, screws, and tools"},
     { x: 70, y: 68, text: "Next in line for repair and ~Modifications~"}
   ]},
-  shelf: { img: "shelf.png", text: "My Beautiful Shelf that houses a lot of the things who detail who I am, I played with legos as a kid, I see legos as the corner stone in my life that guided me towards tinkering and learning how things work together. Along with that I have many of my consoles here and some books that I have read/or yet to read!", 
+  shelf: { img: "shelf.png", text: "My Beautiful Shelf that houses a lot of the things that detail who I am. I played with Legos as a kid, and I see Legos as the cornerstone in my life that guided me towards tinkering and learning how things work together. Along with that, I have many of my consoles here and some books that I have read/or yet to read!", 
     pins: [
-    { x: 30, y: 25, text: "My wonderful legos" },
+    { x: 30, y: 25, text: "My wonderful Legos" },
     { x: 58, y: 42, text: "Retro collection, will keep forever!!!" },
     { x: 48, y: 69, text: "Audrino UNO and Wii U" }
   ]},
-  skillsUSA: { img: "skillsUSA.png", text: "Proudly Representing Gwinnett Technical College, I was blessed with the chance to compete in a State competition earning the gold medal with my teammate, and long story short.. Nationals went pretty good too :)" ,
+  skillsUSA: { img: "skillsUSA.png", text: "Proudly Representing Gwinnett Technical College, I was blessed with the opportunity to compete in the SkillsUSA State competition, earning the gold medal with my teammate, and long story short.. Nationals went pretty good too :)",
     pins: [
       {x: 40, y: 60, text: "Nationals Gold Medal"},
       {x: 70, y: 75, text: "State Gold Medal"}
     ]},
-  certifications: { img: "certifications.png", text: "Some Certifications I've earned in the last few years. I also earned my AAS in Cyber Security and an a AAS in Networking Specialist from my school along with a handful of certifications (Eagerly waiting to recieve them in mail). In the mean time, I've spent time studying towards my CCNA, CISSP and others!"},
-  award: { img: "award.png", text: "Was selected Top four finalist in my school for the Georgia Occupational Award of Leadership, Other things I've done for my school include: Awarded Top Student in Cyber Security Program, Student Ambassador/Government, Game Development & Esports Club VP, Gwinnett County Police Citizens Advisory Board Member,",
+  certifications: { img: "certifications.png", text: "Some Certifications I've earned in the last few years. I also earned my AAS in Cyber Security and an AAS in Networking Specialist from my school, along with a handful of certifications. I'm eagerly waiting to receive them in the mail to hang them up! In the meantime, I'm studying towards my CCNA, CISSP, and others!"},
+  award: { img: "award.png", text: "Was selected Top four finalist in my school for the Georgia Occupational Award of Leadership, Other things I've done in my school include: Awarded Top Student in Cyber Security Program, Student Ambassador/Government, Game Development & Esports Club VP, Gwinnett County Police Citizens Advisory Board Member, SkillsUSA Nationalist, 30+ hours of voulenteering and more!",
     pins: [
       {x: 70, y: 30, text: "Collection of stickers that came from the laptops I've repaired, my favorites are  the Gameboy Advanced SP and Boo"}
     ]},
