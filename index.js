@@ -394,8 +394,8 @@ function handleInput(action, pressed) {
     const horizpad = 20;
     const vertpad = 20;
     const maxW = vw -horizpad * 2;
-    const maxH = ch - vertpad * 2;
-    const scaale = Math.min(maxW /base_w, maxH / base_h, 1);
+    const maxH = vh - vertpad * 2;
+    const scale = Math.min(maxW /base_w, maxH / base_h, 1);
 
     shell.style.setProperty('--scale', scale);
   }
