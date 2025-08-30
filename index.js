@@ -26,18 +26,79 @@ window.addEventListener('touchmove', (e) => {
 }, { passive: true });
 
 const closeups = {
-  desk: { img: "Desk.png", text: "This is the desk where I do all my work, virtualization, studying whatever you could think of, this website was even created here! In my free time I spend a lot of time playing around with various technologies and learning, my goal in life is to learn as much as I can so that I can be a unstoppable all things technology, mwaahhahahaha" ,
+  desk: {
+    img: "Desk.png",
+    text: "This is where I do all of my work and study a vast amount of technology, This is configured with Dual Boot Windows 11/Arch Linux (I Use Arch BTW) where I do CTF's, program, virtualize systems with VMware, Game Development, Game(ofc), and more!",
     pins: [
-      {x:3, y:4, text: "doggie"},
+      { x: 76, y: 28, text: "Specs: AMD Ryzen 7 7700X 8-Core Processor, AMD Radeon RX 7600 XT, 2TB M.2 nvme, 32GB DDR5, B650 GAMING X AX" },
+      { x: 48, y: 69, text: "This is charlie, he often lays under my desk while I work, He says bark" },
+      { x: 75, y: 37, text: "My work laptop, working remotely as a compliance specialist working with frameworks like SOC 2 and ISO 27001" }
     ]
   },
-  workshop: { img: "workshop.png", text: "Origionally I would tinker with hardware on my main desk, so I decided to build this table to be my mini workshop. On this table I've diagnosed, taken apart and repaired various devices including consoles like Wii, Wii U, PS3 Fat, old andriod phones, etc and many more to come." },
-  shelf: { img: "shelf.png", text: "My Beautiful Shelf that houses a lof the things that repersent who I am, Various Lego strucutures that became a corner stone in my interst in engineering, Consoles including 3DS XL, Sega Dreamcast and the N64 (not my entire collection just what is displayed!). This Shelf not only houses who I am but side projects including devices I'm fixing and books that I have yet to read! " },
-  skillsUSA: { img: "skillsUSA.png", text: "On Febuary 20th-22nd of 2025, I was blessed with the oportunity to enter the SkillsUSA State competition of Cybersecurity. Ofcourse, as you can see in the image me and my teammate both secured the gold medal landing us a spot in Nationals. Nationals had various challenge's and a CTF running in the background, it was a tough match with all the states we faced around the country, but we preserved and won the Nationals Gold Medal for SkillsUSA Cyber Security! Even making it into the local paper. This is a frame that my family constructed for me that I have yet to hang on the wall lol. " },
-  certifications: { img: "certifications.png", text: "Some certifications I've gained in my time of being in college, I've also earned my assosiates degree in cyber security and an assosiates degree in networking specialist from Gwinnett Techincal colelge, I look forward to hanging those up when I get them! Along with these I'm also in the mits of studying for more certifications in industry including CCNA, Linux+, CISSP, and more!" },
-  award: { img: "award.png", text: "Global Occupational Award of Leadership, an award I won for my prepared speach and being one of the top 4 finalist within my school" },
-  justice: { img: "justicecorner.png", text: "Uhhhhh I'm not saying I'm batman or anything but me and batman have never been in the same room together...." }
+  workshop: { img: "workshop.png", text: "I Used to tinker on my main desk, but to prevent damaging it I build this one! Here is where I disasemble and repair a vast amount of electronics, some of the most recent include a PS3 Fat, Wii Remotes, and my brothers Phone!", 
+    pins: [
+    { x: 35, y: 50, text: "mmmm Pi" },
+    { x: 50, y: 68, text: "01000010 01110101 01101001 01101100 01100100 00100000 01101101 01100101 00100000 01100001 01101100 01110010 01100101 01100001 01100100 01111001 00101110 00101110 00101110 00100000" }
+  ]},
+  shelf: { img: "shelf.png", text: "My Beautiful Shelf that houses a lot of the things who detail who I am, I played with legos as a kid, I see legos as the corner stone in my life that guided me towards tinkering and learning how things work together. Along with that I have many of my consoles here and some books that I have read/or yet to read!", 
+    pins: [
+    { x: 30, y: 25, text: "My wonderful legos" },
+    { x: 58, y: 42, text: "Retro collection, will keep forever!!!" }
+  ]},
+  skillsUSA: { img: "skillsUSA.png", text: "Proudly Representing Gwinnett Technical College, I was blessed with the chance to compete in a State competition earning the gold medal with my teammate, and long story short.. Nationals went pretty good too :)" ,
+    pins: [
+      {x: 40, y: 60, text: "Nationals Gold Medal"},
+      {x: 70, y: 75, text: "State Gold Medal"}
+    ]},
+  certifications: { img: "certifications.png", text: "Some Certifications I've earned in the last few years. I also earned my AAS in Cyber Security and an a AAS in Networking Specialist from my school along with a handful of certifications (Eagerly waiting to recieve them in mail). In the mean time, I've spent time studying towards my CCNA, CISSP and others!" },
+  award: { img: "award.png", text: "Was selected Top four finalist in my school for the Georgia Occupational Award of Leadership, Other things I've done for my school include: Awarded Top Student in Cyber Security Program, Student Ambassador/Government, Game Development & Esports Club VP, Gwinnett County Police Citizens Advisory Board Member," },
+  justice: { img: "justicecorner.png", text: "I'm not saying I'm Batman... but me and him have never been in the same room together",
+    pins: [
+      {x: 90, y: 80, text: "Top Student In Cyber Security Program At Gwinnett Technical College Medal"}
+    ]
+   }
 };
+
+function renderPins(pins = []) {
+  const layer = document.getElementById('pin-layer');
+  if (!layer) return;
+  layer.innerHTML = ""; 
+
+  pins.forEach(p => {
+    const dot = document.createElement('button');
+    dot.className = 'pin';
+    dot.type = 'button';
+    dot.style.left = p.x + '%';
+    dot.style.top  = p.y + '%';
+
+    let bubble = null;
+    function toggleBubble() {
+      if (bubble) { bubble.remove(); bubble = null; return; }
+      bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = p.text;
+      bubble.style.left = p.x + '%';
+      bubble.style.top  = p.y + '%';
+      layer.appendChild(bubble);
+    }
+
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleBubble();
+    });
+
+    layer.appendChild(dot);
+  });
+
+  function closer(e) {
+    if (!e.target.closest('.pin')) {
+      layer.querySelectorAll('.bubble').forEach(b => b.remove());
+      layer.removeEventListener('click', closer);
+    }
+  }
+  layer.addEventListener('click', closer);
+}
+
 
 icons.forEach(icon => {
   icon.addEventListener('click', () => {
@@ -47,12 +108,15 @@ icons.forEach(icon => {
     closeupImg.src = data.img;
     document.getElementById('closeup-text').textContent = data.text;
     closeup.classList.remove('hidden');
+    renderPins(data.pins || []);
   });
 });
 
 backBtn.addEventListener('click', () => {
   closeup.classList.add('hidden');
   closeupImg.src = "office.png";
+  const layer = document.getElementById('pin-layer');
+  if (layer) layer.innerHTML = "";
 });
 
 document.addEventListener("keydown", (e) => {
@@ -63,9 +127,8 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-
 const Playerimg = new Image();
-Playerimg.src="supercomputer.png";
+Playerimg.src = "supercomputer.png"; 
 
 const controls = {
   "btn-up": "up",
@@ -90,33 +153,24 @@ const keys = { b:false, up:false, power:false };
 
 function handleInput(action, pressed) {
   console.log(`Action: ${action}, Pressed: ${pressed}`);
-
   if (action === 'b')  keys.b = pressed;
   if (action === 'up') keys.up = pressed;
-
-
   if (action === 'power' && pressed) {
     if (window.togglePower) window.togglePower();
   }
 }
 
 
-
 (function () {
   const INTRO_KEY = 'office_intro_seen';
   const overlayEl = document.getElementById('startmenu');
-
-  function hideOverlay() {
-    overlayEl?.classList.add('hidden');
-  }
-
+  function hideOverlay() { overlayEl?.classList.add('hidden'); }
   if (localStorage.getItem(INTRO_KEY) === '1') hideOverlay();
-
   document.addEventListener('click', (e) => {
     const enter = e.target.closest('#startmenu-enter');
     const hide  = e.target.closest('#startmenu-hide');
     if (enter) { e.preventDefault(); hideOverlay(); }
-    if (hide)  { e.preventDefault(); localStorage.setItem(INTRO_KEY, '1'); hideOverlay(); }
+    if (hide)  { e.preventDefault(); localStorage.setItem(INTRO_KEY,'1'); hideOverlay(); }
   });
 })();
 
@@ -126,16 +180,9 @@ function handleInput(action, pressed) {
   const ctx = cvs?.getContext('2d');
   if (!cvs || !ctx) { console.warn('No canvas #Game found'); return; }
 
-  
   const STATE = {
-    OFF:'OFF',
-    BOOT:'BOOT',
-    LOGO1:'LOGO1',  
-    LOGO2:'LOGO2',   
-    STORY:'STORY',   
-    READY:'READY',   
-    PLAY:'PLAY',
-    CRASH:'CRASH'
+    OFF:'OFF', BOOT:'BOOT', LOGO1:'LOGO1', LOGO2:'LOGO2',
+    STORY:'STORY', READY:'READY', PLAY:'PLAY', CRASH:'CRASH'
   };
 
   let game = {
@@ -143,14 +190,17 @@ function handleInput(action, pressed) {
     t: 0,
     score: 0,
     best: +(localStorage.getItem('sosa_best')||0),
+
+  
     px: 50, py: 220, vy: 0, onGround: true,
     floor: 260,
+
+
     speed: 2.0,
     obstacles: [],
     stars: []
   };
 
-  
   const G = 0.45;
   const JUMP_V = -9.6;
 
@@ -158,7 +208,6 @@ function handleInput(action, pressed) {
     if (game.state === STATE.OFF) boot();
     else powerOff();
   }
- 
   window.togglePower = togglePower;
 
   function boot(){ resetWorld(); setState(STATE.BOOT); }
@@ -186,6 +235,14 @@ function handleInput(action, pressed) {
     return ax<bx+bw && ax+aw>bx && ay<by+bh && ay+ah>by;
   }
 
+  window.addEventListener('keydown', (e)=>{
+    if (e.code==='KeyZ' || e.code==='ArrowUp') keys.b = true;
+    if (e.code==='KeyP') togglePower();
+    if (e.code==='KeyR' && game.state===STATE.CRASH) { resetWorld(); setState(STATE.READY); }
+  });
+  window.addEventListener('keyup', (e)=>{
+    if (e.code==='KeyZ' || e.code==='ArrowUp') keys.b = false;
+  });
   let last = performance.now();
   function loop(now){
     const dt = now - last; last = now;
@@ -202,20 +259,16 @@ function handleInput(action, pressed) {
       case STATE.OFF: return;
 
       case STATE.BOOT:
-        if (game.t > 300) setState(STATE.LOGO1);
-        return;
+        if (game.t > 300) setState(STATE.LOGO1); return;
 
       case STATE.LOGO1:
-        if (game.t > 3000) setState(STATE.LOGO2);
-        return;
+        if (game.t > 3000) setState(STATE.LOGO2); return;
 
       case STATE.LOGO2:
-        if (game.t > 3000) setState(STATE.STORY);
-        return;
+        if (game.t > 3000) setState(STATE.STORY); return;
 
       case STATE.STORY:
-        if (game.t > 3500) setState(STATE.READY);
-        return;
+        if (game.t > 3500) setState(STATE.READY); return;
 
       case STATE.READY:
         if (keys.b){ keys.b = false; setState(STATE.PLAY); }
@@ -264,6 +317,7 @@ function handleInput(action, pressed) {
     }
   }
 
+ 
   function clear(c){ ctx.fillStyle = c; ctx.fillRect(0,0,cvs.width,cvs.height); }
   function text(t, x, y, size=16, color='#e2e8f0', align='left'){
     ctx.fillStyle = color; ctx.font = `${size}px monospace`; ctx.textAlign = align; ctx.fillText(t, x, y);
@@ -294,32 +348,63 @@ function handleInput(action, pressed) {
 
       case STATE.STORY:
         clear('#0b1016');
-        centerText(["I've escaped the museum…", "I have to run before he catches me."], 10, '#e2e8f0');
+        centerText(["I've escaped the museum…", "I have to run before he catches me."], 12, '#e2e8f0');
         return;
 
       case STATE.READY:
         clear('#0b1016'); centerText(['He is coming..', '', 'Press B to Start'], 18, '#e2e8f0'); return;
 
-      case STATE.PLAY:
-      case STATE.CRASH:
-        clear('#923838ff');
-  
-        ctx.fillStyle = '#16426dff'; ctx.fillRect(0, game.floor+2, cvs.width, 4);
-        ctx.drawImage(Playerimg, game.px - 15, game.py - 32, 32, 32);
-   
-        ctx.fillStyle = '#9aa0ff'; game.obstacles.forEach(o=> ctx.fillRect(o.x,o.y,o.w,o.h));
-  
-        text('Score: ' + Math.floor(game.score), 8, 16, 12, '#000000ff');
-        text('Best: '  + game.best, 8, 30, 12, '#000000ff');
-
-        if (game.state===STATE.CRASH){
-
-          clear('#0066ffff')
-          centerText([':( Your server has ran into an obstacle!', '', 'Press B to reboot'], 12, '#ffffffff');
+      case STATE.PLAY: {
+      
+        clear('#923838');
+       
+        ctx.fillStyle = '#16426d'; ctx.fillRect(0, game.floor+2, cvs.width, 4);
+       
+        if (Playerimg && Playerimg.complete) {
+          ctx.drawImage(Playerimg, game.px - 15, game.py - 32, 32, 32);
+        } else {
+          ctx.fillStyle = '#6be675';
+          ctx.fillRect(game.px-8, game.py-16, 16,16);
         }
+        ctx.fillStyle = '#9aa0ff'; game.obstacles.forEach(o=> ctx.fillRect(o.x,o.y,o.w,o.h));
+
+        text('Score: ' + Math.floor(game.score), 8, 16, 12, '#000');
+        text('Best: '  + game.best, 8, 30, 12, '#000');
+        return;
+      }
+
+      case STATE.CRASH:
+        clear('#0066ff');
+        centerText([':( Your server has ran into an obstacle!', '', 'Press B to reboot'], 12, '#ffffff');
         return;
     }
   }
+})();
+
+
+(function(){
+  const btn = document.getElementById('gamesosa-toggle');
+  const shell = document.getElementById('consoleshell');
+  if (!btn || !shell) return;
+
+  function updateLabel() {
+    const open = shell.classList.contains('active');
+    btn.setAttribute('aria-pressed', String(open));
+    btn.textContent = open ? '✖ Close GameSosa' : '🎮 GameSosa';
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    shell.classList.toggle('active');
+    updateLabel();
+  });
+
+
+  const observer = new MutationObserver(updateLabel);
+  observer.observe(shell, { attributes: true, attributeFilter: ['class'] });
+
+  
+  updateLabel();
 })();
 
 
