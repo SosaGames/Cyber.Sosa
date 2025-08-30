@@ -111,7 +111,7 @@ function handleInput(action, pressed) {
   }
 
   if (localStorage.getItem(INTRO_KEY) === '1') hideOverlay();
-s
+
   document.addEventListener('click', (e) => {
     const enter = e.target.closest('#startmenu-enter');
     const hide  = e.target.closest('#startmenu-hide');
